@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="de">
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║                    TRIOTRONIK STYLEGUIDE                        ║
+║                                                                  ║
+║  Ein umfassendes Design-System basierend auf Bootstrap 5.3.x    ║
+║  für professionelle Netzwerklösungen                            ║
+║                                                                  ║
+║  Struktur:                                                       ║
+║  ├── Navigation & UI Controls                                   ║
+║  ├── Hero Sections (Styleguide, TRIOTRONIK)                    ║
+║  ├── Brand Sections (Logo, Downloads, Farben)                  ║
+║  ├── ACADEMY Section                                            ║
+║  ├── DISTRIBUTION Section                                       ║
+║  ├── TECHNOLOGIES Section                                       ║
+║  ├── Design System (Farben, Typografie, UI Components)         ║
+║  └── Scripts & Initialization                                   ║
+║                                                                  ║
+║  Version: 2.0 | Bootstrap: 5.3.x | AOS: 2.3.4                 ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+
+<head>
+  <!-- ═══════════════════ META & TITLE ═══════════════════ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRIOTRONIK Styleguide</title>
+  
+  <!-- ═══════════════════ EXTERNAL STYLESHEETS ═══════════════════ -->
+  <!-- Bootstrap 5.3.x - Main CSS Framework -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- AOS (Animate On Scroll) Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  
+  <!-- Custom TRIOTRONIK Styleguide CSS -->
+  <link href="assets/css/styleguide.css" rel="stylesheet">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".sidebar-nav" data-bs-offset="100" tabindex="0">
+
+<!-- 
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                              NAVIGATION & UI CONTROLS                        ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
+
+<!-- ═══════════════════════════════ SIDEBAR NAVIGATION ═══════════════════════════════ -->
+<!-- Mobile Toggle Button für Sidebar -->
+<button class="sidebar-toggler" onclick="document.querySelector('.sidebar').classList.toggle('open')">
+  ☰
+</button>
+
+<!-- Hauptnavigation Sidebar -->
+<div class="sidebar">
+  <!-- Logo Container -->
+  <div class="sidebar-logo">
+    <img src="./assets/img/TRIOTRONIK_logo_WHITE.svg" 
+         alt="TRIOTRONIK Logo" 
+         class="img-fluid mt-5 mb-4 w-100" />
+  </div>
+  
+  <!-- Navigation Menu -->
+  <nav class="sidebar-nav"> 
+    <!-- ═══════════════ BRAND APPEARANCE SECTION ═══════════════ -->
+    <div class="sidebar-group">
+      <button class="sidebar-toggle d-flex justify-content-between align-items-center w-100" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#submenu-brand" 
+              aria-expanded="false" 
+              aria-controls="submenu-brand">
+        <span>Brand Appearance</span>
+        <i class="bi bi-chevron-down toggle-icon"></i>
+      </button>
+      
+      <!-- Brand Submenu -->
+      <div class="collapse ps-1" id="submenu-brand">
+        <a href="#academy" class="nav-link">Academy</a>
+        <a href="#distribution" class="nav-link">Distribution</a>
+        <a href="#technologies" class="nav-link">Technologies</a>
+      </div>
+    </div>
+    
+    <!-- ═══════════════ DESIGN BASICS SECTION ═══════════════ -->
+    <div class="sidebar-group">
+      <button class="sidebar-toggle d-flex justify-content-between align-items-center w-100" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#submenu-design" 
+              aria-expanded="false" 
+              aria-controls="submenu-design">
+        <span>Basics</span>
+        <i class="bi bi-chevron-down toggle-icon"></i>
+      </button>
+      
+      <!-- Design Basics Submenu -->
+      <div class="collapse ps-1" id="submenu-design">
+        <a href="#farben" class="nav-link">Farben</a>
+        <a href="#typografie" class="nav-link">Typografie</a>
+        <a href="#buttons" class="nav-link">Buttons</a>
+        <a href="#formular" class="nav-link">Formular</a>
+        <a href="#card" class="nav-link">Card</a>
+        <a href="#tabellen" class="nav-link">Tabellen</a>
+        <a href="#alerts" class="nav-link">Hinweise</a>
+        <a href="#komponenten" class="nav-link">Komponenten</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- ═══════════════════════════════ DARK MODE TOGGLE ═══════════════════════════════ -->
+<!-- Fixed Position Dark Mode Switch -->
+<div class="position-fixed end-0 top-0 m-3 z-3 d-flex align-items-center gap-2">
+  <label class="form-label text-muted small mb-0">Dark Mode</label>
+  <div class="form-check form-switch mb-0">
+    <input class="form-check-input" type="checkbox" id="globalThemeToggle">
+  </div>
+</div>
+
+	
+	
+<!-- HERO STYLEGUIDE -->
+<section class="hero-section position-relative w-100 min-vh-100 overflow-hidden d-flex align-items-center justify-content-center text-white bg-distribution-gradient">
+  <!-- Hero-Inhalt -->
+  <div class="text-center px-3 z-1">
+    <h1 class="display-2 fw-bold mb-4">TRIOTRONIK Styleguide</h1>
+    <p class="lead fs-4 mb-4">Modernes Bootstrap 5.3.x Design-Framework für professionelle Netzwerklösungen</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap">
+      <a href="#logo" class="btn btn-light btn-lg px-4 py-3 fw-semibold">Design entdecken</a>
+      <a href="#farben" class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold">Farben & Typografie</a>
+    </div>
+    <div class="mt-5">
+      <p class="text-white-50 small mb-2">Powered by Bootstrap 5.3.x • CSS Variables • Responsive Design</p>
+    </div>
+  </div>
+  <!-- Overlay für bessere Lesbarkeit -->
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-10 z-0"></div>
+</section>
+	
+<!-- HERO TRIOTRONIK -->
+<section class="hero-section position-relative w-100 min-vh-100 overflow-hidden d-flex align-items-center justify-content-center text-white"> 
+  
+  <!-- Hintergrundvideo -->
+  <video class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1 tt_video-bitmap" autoplay muted loop playsinline>
+    <source src="assets/video/intro.mp4" type="video/mp4">
+    Dein Browser unterstützt kein HTML5-Video. </video>
+  
+  <!-- Optional: dunkles Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-triotronik bg-opacity-50 z-0"></div>
+  
+  <!-- Hero-Inhalt -->
+  <div class="text-center px-3 z-1">
+    <h1 class="display-3 fw-bold">Willkommen bei TRIOTRONIK</h1>
+    <p class="lead">Netzwerktechnik. Made for Professionals.</p>
+    <a href="#academy" class="btn btn-primary-custom mt-3">Los geht's</a> </div>
+</section>
+
+<!-- Hauptinhalt -->
+<div class="main-content container">
+  <!-- Inhalt: Logo, Farben, Typografie, Buttons, Formular, usw. -->
+  
+  <section id="logo" class="pt-5 mb-5" data-aos="fade-up">
+    <div class="container px-0">
+      <h2 class="section-title">Logo & Markenzeichen</h2>
+      
+      <!-- Beschreibung -->
+      <p class="lead"> Das TRIOTRONIK-Logo ist das zentrale visuelle Element der Marke. Es steht für technische Kompetenz,
+        Vertrauen und Stabilität. Die Varianten sind ausschließlich in den freigegebenen Versionen zu verwenden. </p>
+      
+      <!-- Beschreibung – Marke -->
+      <div class="mb-5"> 
+        <!-- Abschnitt: LOGO STORY -->
+        <h2 class="section-title text-uppercase">LOGO STORY</h2>
+        <p class="display-6 fw-bold mb-4">TRIOTRONIK – Netzwerke, die verbinden.</p>
+        
+        <!-- Einleitung -->
+        <p> Eingebettet in die sanften Hügel der Oststeiermark, am Rande von Weiz, liegt das Headquarter von TRIOTRONIK.
+          Hier, im Grünen Herzen Österreichs, finden wir Inspiration, Bodenhaftung – und unsere ganz eigene Kraft. </p>
+        
+        <!-- Kompetenzbereich -->
+        <ul class="list-unstyled mt-4">
+          <li class="d-flex mb-4"> <i class="bi bi-diagram-3-fill text-accent me-3 fs-4"></i>
+            <div>
+              <h5 class="mb-1 fw-bold text-uppercase">Netzwerktechnik aus einer Hand</h5>
+              <p class="mb-0"> TRIOTRONIK entwickelt und liefert leistungsstarke Netzwerklösungen – zuverlässig, technisch präzise und aus einer Hand.
+                Seit über 30 Jahren sind wir Partner für Systemhäuser, Installateure und IT-Dienstleister in ganz Österreich und darüber hinaus. </p>
+            </div>
+          </li>
+          <li class="d-flex mb-4"> <i class="bi bi-shield-check text-accent me-3 fs-4"></i>
+            <div>
+              <h5 class="mb-1 fw-bold text-uppercase">Werte, die uns leiten</h5>
+              <p class="mb-0"> Qualität, Verlässlichkeit und gelebte Bodenständigkeit prägen unser tägliches Arbeiten.
+                Wir verstehen Technik – und die Menschen dahinter. </p>
+            </div>
+          </li>
+          <li class="d-flex mb-4"> <i class="bi bi-heart-fill text-accent me-3 fs-4"></i>
+            <div>
+              <h5 class="mb-1 fw-bold text-uppercase">Gesellschaftliche Verantwortung</h5>
+              <p class="mb-0"> Wir engagieren uns langfristig für die Kinder-Krebshilfe Steiermark und DEBRA Österreich.
+                Auch regionale Sportvereine profitieren von unserem Einsatz – denn Teamgeist endet nicht bei der Arbeit. </p>
+            </div>
+          </li>
+        </ul>
+        
+        <!-- Vision -->
+        <p class="fw-bold text-uppercase text-accent mt-4 mb-2">Unsere Vision</p>
+        <blockquote class="blockquote px-3 py-2 border-start border-4 border-accent bg-light-subtle">
+          <p class="mb-0">Führende Netzwerktechnologie – aus Österreich, für Europa.</p>
+        </blockquote>
+        <p class="fw-bold text-uppercase mt-4"> TRIOTRONIK – Das Netzwerktechnik-Kompetenzzentrum verbindet.<br>
+          Technisch stark. Menschlich klar. </p>
+      </div>
+      
+      <!-- Logo Visualisierung -->
+      
+      <div class="row gy-4"> 
+        <!-- Variante: Farbig auf Weiß (Primär) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-white text-center border-0 rounded-0 shadow-sm p-4 h-100 logo-preview-card"> <img src="./assets/logos/svg/TRIOTRONIK_Logo_Color.svg"
+           alt="TRIOTRONIK Logo – Farbe auf Weiß"
+           class="img-fluid mb-3"
+           style="max-height: 100px;"
+           data-bs-toggle="tooltip"
+           title="Primäres Logo – bevorzugte Variante auf weißem Grund">
+            <div class="text-muted small">Farbig auf Weiß</div>
+            <a href="/downloads/triotronik-logo-colored.svg" class="btn btn-outline-dark btn-sm mt-3" download> <i class="bi bi-download me-1"></i> SVG herunterladen </a> </div>
+        </div>
+        
+        <!-- Variante: Weiß auf Navy -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-dark text-center text-white border-0 rounded-0 shadow-sm p-4 h-100 logo-preview-card"> <img src="./assets/logos/svg/TRIOTRONIK-Logo-White.svg"
+           alt="TRIOTRONIK Logo – Weiß auf Navy"
+           class="img-fluid mb-3"
+           style="max-height: 100px;"
+           data-bs-toggle="tooltip"
+           title="Alternative für dunkle Hintergründe – wenn Farbe nicht möglich ist">
+            <div class="text-light-subtle small">Weiß auf Navy</div>
+            <a href="/downloads/svg/triotronik-logo-white.svg" class="btn btn-outline-light btn-sm mt-3" download> <i class="bi bi-download me-1"></i> SVG herunterladen </a> </div>
+        </div>
+        
+        <!-- Variante: Schwarz auf Weiß -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-white text-center border-0 rounded-0 shadow-sm p-4 h-100 logo-preview-card"> <img src="./assets/logos/svg/TRIOTRONIK_Logo_Black.svg"
+           alt="TRIOTRONIK Logo – Schwarz auf Weiß"
+           class="img-fluid mb-3"
+           style="max-height: 100px;"
+           data-bs-toggle="tooltip"
+           title="Monochrome Variante – nur bei Anwendungen ohne Farbe verwenden">
+            <div class="text-muted small">Schwarz auf Weiß</div>
+            <a href="/downloads/triotronik-logo-black.svg" class="btn btn-outline-dark btn-sm mt-3" download> <i class="bi bi-download me-1"></i> SVG herunterladen </a> </div>
+        </div>
+      </div>
+      
+      <!-- Toast-Container -->
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+        <div id="triotronikToast" class="toast align-items-center text-white bg-dark border-0 rounded-0 shadow-sm"
+       role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="d-flex">
+            <div class="toast-body"> Willkommen im TRIOTRONIK Styleguide!<br>
+              Diese Meldung bleibt sichtbar, bis du sie schließt. </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto"
+              data-bs-dismiss="toast" aria-label="Schließen"></button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Primäres Logo auf weißem Grund --> 
+      <!-- Primäres Logo auf weißem Grund -->
+      <div class="card border-0 bg-white text-center mb-4 rounded-0">
+        <div class="card-body py-5"> <img src="./assets/logos/svg/TRIOTRONIK_Logo_Color.svg"
+         alt="TRIOTRONIK Logo – Farbig auf Weiß"
+         class="img-fluid mb-3"
+         style="max-height: 100px;"
+         data-bs-toggle="tooltip"
+         data-bs-placement="bottom"
+         title="Primärlogo – bevorzugt verwenden auf weißem Hintergrund">
+          <p class="small text-muted mb-0">Farbig auf Weiß</p>
+        </div>
+      </div>
+      
+      <!-- Weiß auf Navy (für dunkle Hintergründe) -->
+      <div class="card border-0 bg-dark text-white text-center mb-4 rounded-0">
+        <div class="card-body py-5"> <img src="./assets/logos/svg/TRIOTRONIK_Logo_White.svg"
+     alt="TRIOTRONIK Logo – Weiß auf Navy"
+     class="img-fluid"
+     style="max-height: 100px;"
+     data-bs-toggle="tooltip"
+     data-bs-placement="bottom"
+     title="Alternativlogo – nur verwenden, wenn Farbe nicht möglich ist">
+          <p class="small text-light mb-0">Weiß auf Navy</p>
+        </div>
+      </div>
+      <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body"> Hello, world! This is a toast message. </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+      
+      <!-- Schwarz auf Weiß (monochrom) -->
+      <div class="card border-0 bg-white text-center mb-4 rounded-0">
+        <div class="card-body py-5"> <img src="./assets/logos/svg/TRIOTRONIK_Logo_Black.svg"
+         alt="TRIOTRONIK Logo – Schwarz auf Weiß"
+         class="img-fluid mb-3"
+         style="max-height: 100px;"
+         data-bs-toggle="tooltip"
+         data-bs-placement="bottom"
+         title="Monochrome Variante – nur wenn keine Farbe möglich ist">
+          <p class="small text-muted mb-0">Schwarz auf Weiß</p>
+        </div>
+      </div>
+      
+      <!-- Downloads -->
+      <div class="row g-2">
+        <div class="col-12">
+          <div class="d-flex justify-content-between align-items-center p-3 bg-light-subtle border rounded-0"> <span>TRIOTRONIK Logo (SVG)</span> <a href="/assets/logos/triotronik-logo-white" download class="btn btn-outline-secondary btn-sm rounded-0"> <i class="bi bi-download me-1"></i> SVG </a> </div>
+        </div>
+        <div class="col-12">
+          <div class="d-flex justify-content-between align-items-center p-3 bg-light-subtle border rounded-0"> <span>TRIOTRONIK Logo (PNG)</span> <a href="/assets/logos/triotronik-logo.png" download class="btn btn-outline-secondary btn-sm rounded-0"> <i class="bi bi-download me-1"></i> PNG </a> </div>
+        </div>
+        <div class="col-12">
+          <div class="d-flex justify-content-between align-items-center p-3 bg-light-subtle border rounded-0"> <span>TRIOTRONIK Logo (EPS für Print)</span> <a href="/assets/logos/triotronik-logo.eps" download class="btn btn-outline-secondary btn-sm rounded-0"> <i class="bi bi-download me-1"></i> EPS </a> </div>
+        </div>
+        <div class="col-12">
+          <div class="d-flex justify-content-between align-items-center p-3 bg-light-subtle border rounded-0"> <span>TRIOTRONIK Logo (ZIP – Komplettpaket)</span> <a href="/assets/logos/triotronik-logo-package.zip" download class="btn btn-outline-secondary btn-sm rounded-0"> <i class="bi bi-download me-1"></i> ZIP </a> </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="downloads" class="pt-5 pb-5 border-top">
+    <div class="container">
+      <h2 class="section-title text-uppercase mb-4">CD-Downloads</h2>
+      <p class="lead mb-4"> Alle zentralen Assets für die Markenkommunikation von TRIOTRONIK stehen hier als ZIP- oder PDF-Datei zur Verfügung. Bitte verwenden Sie stets die passende Version für Print oder Digital. </p>
+      <div class="row gy-4"> 
+        
+        <!-- Logo Print -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-light-subtle border-0 h-100 p-4">
+            <h6 class="fw-bold text-uppercase mb-2">Logo – Print</h6>
+            <p class="text-muted small mb-3"> Vektorisiert (EPS & PDF) im CMYK-Farbraum, für Druckproduktion. </p>
+            <a href="/downloads/triotronik-logo-print.zip" class="btn btn-dark w-100 d-flex align-items-center justify-content-center" download> <i class="bi bi-download me-2"></i> ZIP herunterladen </a> </div>
+        </div>
+        
+        <!-- Logo Digital -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-light-subtle border-0 h-100 p-4">
+            <h6 class="fw-bold text-uppercase mb-2">Logo – Digital</h6>
+            <p class="text-muted small mb-3"> Logos für Web & Office: SVG + PNG, optimiert für helle & dunkle Hintergründe. </p>
+            <a href="/downloads/triotronik-logo-digital.zip" class="btn btn-dark w-100 d-flex align-items-center justify-content-center" download> <i class="bi bi-download me-2"></i> ZIP herunterladen </a> </div>
+        </div>
+        
+        <!-- Farbwerte / Color Doku -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-light-subtle border-0 h-100 p-4">
+            <h6 class="fw-bold text-uppercase mb-2">Farbsystem</h6>
+            <p class="text-muted small mb-3"> HEX, CMYK, RAL, HKS, RGB – alle definierten Markenfarben als Referenz. </p>
+            <a href="/downloads/triotronik-color-system.pdf" class="btn btn-dark w-100 d-flex align-items-center justify-content-center" download> <i class="bi bi-download me-2"></i> PDF herunterladen </a> </div>
+        </div>
+        
+        <!-- Fonts -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-light-subtle border-0 h-100 p-4">
+            <h6 class="fw-bold text-uppercase mb-2">Corporate Fonts</h6>
+            <p class="text-muted small mb-3"> Enthält lizenzfreie Web- & Desktopfonts inkl. Einbindungshinweis. </p>
+            <a href="/downloads/triotronik-font-package.zip" class="btn btn-dark w-100 d-flex align-items-center justify-content-center" download> <i class="bi bi-download me-2"></i> ZIP herunterladen </a> </div>
+        </div>
+        
+        <!-- Styleguide PDF -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-light-subtle border-0 h-100 p-4">
+            <h6 class="fw-bold text-uppercase mb-2">Styleguide PDF</h6>
+            <p class="text-muted small mb-3"> Die vollständige Dokumentation als statisches PDF für Druck & Archiv. </p>
+            <a href="/downloads/triotronik-styleguide.pdf" class="btn btn-dark w-100 d-flex align-items-center justify-content-center" download> <i class="bi bi-download me-2"></i> PDF herunterladen </a> </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Styrian Green -->
+  <section id="triotronik" class="mb-5" data-aos="fade-up">
+    <div class="container px-0">
+      <h2 class="h4 fw-bold text-uppercase border-bottom pb-2 mb-4">TRIOTRONIK – Grundfarben</h2>
+      
+      <!-- Hinweis -->
+      <div class="border-start border-4 border-primary ps-4 py-3 mb-4 bg-light rounded-0">
+        <p class="mb-0"> <strong>Hinweis:</strong> Die beiden Primärfarben von <strong>TRIOTRONIK</strong> – <em>„Navy“</em> und <em>„Styrian Green“</em> – repräsentieren die Markenidentität in digitalen und gedruckten Medien.  
+          Sie können als CSS-Variablen <code>--tt-primary</code> und <code>--tt-accent</code> verwendet werden. </p>
+      </div>
+      
+      <!-- Navy -->
+      <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-primary text-white text-uppercase fw-bold"> Primärfarbe – Navy </div>
+        <div class="card-body">
+          <p class="mb-3"><strong>Farbassoziation:</strong> Beruhigend · Vertrauen · Ehrlichkeit · Sicherheit</p>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Bezeichnung</th>
+                  <th>Vorschau</th>
+                  <th>HEX</th>
+                  <th>RGB</th>
+                  <th>CMYK</th>
+                  <th>RAL</th>
+                  <th>HKS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold">Primärfarbe – Navy</td>
+                  <td style="background-color: var(--tt-primary, #003056); color: #fff; min-width: 100px;">&nbsp;</td>
+                  <td>var(--tt-primary)</code> → <code>#003056</code></td>
+                  <td><code>0, 48, 86</code></td>
+                  <td><code>100, 60, 10, 60</code></td>
+                  <td><code>RAL 5011</code> (Stahlblau)</td>
+                  <td><code>HKS 38</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Styrian Green -->
+      <div class="card border-0 shadow-sm">
+        <div class="card-header text-white fw-bold text-uppercase" style="background-color: #76b82a;"> Primärfarbe – Styrian Green </div>
+        <div class="card-body">
+          <p class="mb-3"><strong>Farbassoziation:</strong> Beständigkeit · Wachstum · Harmonie · Stabilität</p>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Bezeichnung</th>
+                  <th>Vorschau</th>
+                  <th>HEX</th>
+                  <th>RGB</th>
+                  <th>CMYK</th>
+                  <th>RAL</th>
+                  <th>HKS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold">Primärfarbe – Styrian Green</td>
+                  <td style="background-color: var(--tt-accent, #76b82a); color: #fff; min-width: 100px;">&nbsp;</td>
+                  <td><code>#76b82a</code></td>
+                  <td><code>118, 184, 42</code></td>
+                  <td><code>60, 0, 100, 0</code></td>
+                  <td><code>RAL 6018</code> (Gelbgrün)</td>
+                  <td><code>HKS 66</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Farbverlauf -->
+      <div class="card border-0 shadow-sm mb-4 rounded-0">
+        <div class="card-header bg-primary text-white text-uppercase fw-bold rounded-0"> Farbverlauf – TRIOTRONIK </div>
+        <div class="card-body rounded-0">
+          <p class="mb-3"> Der lineare Farbverlauf kombiniert die beiden Primärfarben <strong>Navy</strong> und <strong>Styrian Green</strong>.  
+            Der Verlauf verläuft in einem Winkel von <strong>46 Grad</strong>, von links oben nach rechts unten. </p>
+          <div class="mb-4" style="height: 100px; background: linear-gradient(46deg, var(--tt-primary) 20%, var(--tt-accent) 80%);"></div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle mb-0 rounded-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Position</th>
+                  <th>Farbe</th>
+                  <th>HEX</th>
+                  <th>RGB</th>
+                  <th>CMYK</th>
+                  <th>RAL</th>
+                  <th>HKS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold">Start (20%)</td>
+                  <td style="background-color: var(--tt-primary); color: #fff;">&nbsp;</td>
+                  <td><code>var(--tt-primary)</code> → <code>#003056</code></td>
+                  <td><code>0, 48, 86</code></td>
+                  <td><code>100, 60, 10, 60</code></td>
+                  <td><code>RAL 5011</code> (Stahlblau)</td>
+                  <td><code>HKS 38</code></td>
+                </tr>
+                <tr>
+                  <td class="fw-bold">Ende (80%)</td>
+                  <td style="background-color: var(--tt-accent); color: #fff;">&nbsp;</td>
+                  <td><code>var(--tt-accent)</code> → <code>#76b82a</code></td>
+                  <td><code>118, 184, 42</code></td>
+                  <td><code>60, 0, 100, 0</code></td>
+                  <td><code>RAL 6018</code> (Gelbgrün)</td>
+                  <td><code>HKS 66</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+</div>
+
+<!-- ACADEMY -->
+
+
+<!-- HERO TRIOTRONIK Academie -->
+<section id="academy" class="hero-section position-relative w-100 min-vh-100 overflow-hidden d-flex align-items-center justify-content-center text-white"> 
+  
+  <!-- Hintergrundvideo -->
+  <video class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1 tt_video-bitmap" autoplay muted loop playsinline>
+    <source src="assets/video/intro.mp4" type="video/mp4">
+    Dein Browser unterstützt kein HTML5-Video. </video>
+  
+  <!-- Optional: dunkles Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-academy-gradient bg-tt-academy bg-opacity-50 z-0"></div>
+  
+  <!-- Hero-Inhalt -->
+  <div class="text-center px-3 z-1">
+    <h1 class="display-3 fw-bold">Willkommen bei der TRIOTRONIK Academy</h1>
+    <p class="lead">Netzwerktechnik. Made for Professionals.</p>
+    <a href="#academy" class="btn btn-primary-custom mt-3">Los geht's</a> </div>
+</section>
+
+
+
+<div class="main-content container">
+
+
+  <div class="container py-5">
+    <h1 class="mb-5 text-primary fw-bold text-uppercase">TRIOTRONIK Academy</h1>
+	  
+ 
+    <section id="academy-gradient" class="pt-5 mb-5" data-aos="fade-up">
+      <div class="container px-0">
+        <h2 class="section-title">Academy – Farbverlauf</h2>
+        <div class="row align-items-center mb-4">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <div class="w-100" style="height: 100px; background: linear-gradient(46deg, #9e1981 20%, #F59C00 80%);"></div>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"> Der Academy-Farbverlauf kombiniert <strong>Purple</strong> mit <strong>Orange</strong> und schafft eine visuelle Brücke zwischen Tiefe, Kreativität und Dynamik. Er eignet sich besonders für visuelle Hintergründe, Bereichskennzeichnungen oder CTAs in Academy-Inhalten. </p>
+            <p class="small text-muted mb-0"> CSS-Klasse: <code>.bg-academy-gradient</code> &nbsp;|&nbsp; CSS-Code: <code>linear-gradient(46deg, #9e1981 20%, #F59C00 80%)</code> </p>
+          </div>
+        </div>
+        
+        <!-- Farbtabelle für Verlauf -->
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <h6 class="text-uppercase small fw-bold text-muted mb-2">Startfarbe – Purple</h6>
+            <table class="table table-bordered table-sm text-nowrap mb-0">
+              <tbody>
+                <tr>
+                  <td><strong>CMYK</strong></td>
+                  <td>45 / 100 / 0 / 0</td>
+                </tr>
+                <tr>
+                  <td><strong>RAL</strong></td>
+                  <td>4006</td>
+                </tr>
+                <tr>
+                  <td><strong>HKS</strong></td>
+                  <td>29</td>
+                </tr>
+                <tr>
+                  <td><strong>RGB</strong></td>
+                  <td>158 / 25 / 129</td>
+                </tr>
+                <tr>
+                  <td><strong>Web</strong></td>
+                  <td><code>#9e1981</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-6 mb-4">
+            <h6 class="text-uppercase small fw-bold text-muted mb-2">Zielfarbe – Orange</h6>
+            <table class="table table-bordered table-sm text-nowrap mb-0">
+              <tbody>
+                <tr>
+                  <td><strong>CMYK</strong></td>
+                  <td>0 / 45 / 100 / 0</td>
+                </tr>
+                <tr>
+                  <td><strong>RAL</strong></td>
+                  <td>1028</td>
+                </tr>
+                <tr>
+                  <td><strong>HKS</strong></td>
+                  <td>06</td>
+                </tr>
+                <tr>
+                  <td><strong>RGB</strong></td>
+                  <td>245 / 156 / 0</td>
+                </tr>
+                <tr>
+                  <td><strong>Web</strong></td>
+                  <td><code>#F59C00</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+	  
+	  
+	  
+	  
+    <section class="pt-5 mb-5" data-aos="fade-up">
+      <div class="container px-0">
+        <h2 class="section-title">Sekundärfarben – Academy</h2>
+        
+        <!-- Orange -->
+        <div class="row align-items-center mb-4">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <div class="w-100" style="height: 100px; background-color: #F59C00;"></div>
+          </div>
+          <div class="col-md-8">
+            <p class="mb-1"> Die Farbe <strong>Orange</strong> symbolisiert Energie, Kreativität und Lernbereitschaft. Sie steht für dynamische Inhalte und Anwendungen der TRIOTRONIK Academy. </p>
+            <p class="mb-0 small text-muted"> CSS-Variable: <code>--tt-academy</code> &nbsp;|&nbsp; HEX: <code>#F59C00</code> </p>
+          </div>
+        </div>
+        <div class="table-responsive mb-5">
+          <table class="table table-bordered table-sm mb-0 text-nowrap">
+            <thead class="table-light text-uppercase small">
+              <tr>
+                <th scope="col">Farbsystem</th>
+                <th scope="col">Wert</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CMYK</strong></td>
+                <td>0 / 45 / 100 / 0</td>
+              </tr>
+              <tr>
+                <td><strong>RAL</strong></td>
+                <td>1028</td>
+              </tr>
+              <tr>
+                <td><strong>HKS</strong></td>
+                <td>06</td>
+              </tr>
+              <tr>
+                <td><strong>RGB</strong></td>
+                <td>245 / 156 / 0</td>
+              </tr>
+              <tr>
+                <td><strong>Web (HEX)</strong></td>
+                <td><code>#F59C00</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Purple -->
+        <div class="row align-items-center mb-4">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <div class="w-100" style="height: 100px; background-color: #9e1981;"></div>
+          </div>
+          <div class="col-md-8">
+            <p class="mb-1"> Die Farbe <strong>Purple</strong> erweitert das Academy-Spektrum mit Tiefe, Wertigkeit und Konzentration. Sie eignet sich für vertiefende Inhalte, Lernplattformen oder zertifizierte Trainings. </p>
+            <p class="mb-0 small text-muted"> CSS-Variable: <code>--tt-academy-purple</code> &nbsp;|&nbsp; HEX: <code>#9e1981</code> </p>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-sm mb-0 text-nowrap">
+            <thead class="table-light text-uppercase small">
+              <tr>
+                <th scope="col">Farbsystem</th>
+                <th scope="col">Wert</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CMYK</strong></td>
+                <td>45 / 100 / 0 / 0</td>
+              </tr>
+              <tr>
+                <td><strong>RAL</strong></td>
+                <td>4006</td>
+              </tr>
+              <tr>
+                <td><strong>HKS</strong></td>
+                <td>29</td>
+              </tr>
+              <tr>
+                <td><strong>RGB</strong></td>
+                <td>158 / 25 / 129</td>
+              </tr>
+              <tr>
+                <td><strong>Web (HEX)</strong></td>
+                <td><code>#9e1981</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+	  
+
+</div>
+
+</div>
+
+<!-- HERO DISTRIBUTION -->
+<section id="distribution" class="hero-section position-relative w-100 min-vh-100 overflow-hidden d-flex align-items-center justify-content-center text-white bg-distribution-gradient">
+  <!-- Hero-Inhalt -->
+  <div class="text-center px-3 z-1">
+    <h1 class="display-2 fw-bold mb-4">TRIOTRONIK Distribution</h1>
+    <p class="lead fs-4 mb-4">Effiziente Logistiklösungen und intelligente Distributionssysteme</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap">
+      <a href="#distribution-gradient" class="btn btn-light btn-lg px-4 py-3 fw-semibold">Distribution erkunden</a>
+      <a href="#farben" class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold">Farbsystem</a>
+    </div>
+    <div class="mt-5">
+      <p class="text-white-50 small mb-2">Smart Logistics • Supply Chain • Distribution Excellence</p>
+    </div>
+  </div>
+  <!-- Overlay für bessere Lesbarkeit -->
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-10 z-0"></div>
+</section>
+
+<div class="main-content container">
+
+  <div class="container py-5">
+    <h1 class="mb-5 text-primary fw-bold text-uppercase">TRIOTRONIK DISTRIBUTION</h1>
+      
+    <section id="distribution-gradient" class="pt-5 mb-5" data-aos="fade-up">
+      <div class="container px-0">
+        <h2 class="section-title">Distribution – Farbverlauf</h2>
+        <div class="row align-items-center mb-4">
+           <div class="col-md-6 mb-3 mb-md-0">
+			    <!-- Verlauf Distribution -->
+              <div class="w-100" style="height: 100px; background: linear-gradient(46deg, #003056 20%, #76b82a 80%);"></div>
+            </div>
+            <div class="col-md-6">
+              <p class="mb-1"> Der Verlauf verbindet die TRIOTRONIK-Primärfarbe <strong>Navy</strong> mit <strong>Styrian Green</strong> und symbolisiert den Weg von Kompetenz und Vertrauen hin zu Wachstum, Effizienz und Bewegung. Ideal für Anwendungsbereiche rund um Distribution und Supply Chain. </p>
+              <p class="small text-muted mb-0"> CSS-Klasse: <code>.bg-distribution-gradient</code> &nbsp;|&nbsp; <code>linear-gradient(46deg, #003056 20%, #76b82a 80%)</code> </p>
+            </div>
+          </div>
+          
+          <!-- Farbwerte Navy & Green -->
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <h6 class="text-uppercase small fw-bold text-muted mb-2">Startfarbe – Navy</h6>
+              <table class="table table-bordered table-sm text-nowrap mb-0">
+                <tbody>
+                  <tr>
+                    <td><strong>CMYK</strong></td>
+                    <td>100 / 60 / 10 / 60</td>
+                  </tr>
+                  <tr>
+                    <td><strong>RAL</strong></td>
+                    <td>5011</td>
+                  </tr>
+                  <tr>
+                    <td><strong>HKS</strong></td>
+                    <td>38</td>
+                  </tr>
+                  <tr>
+                    <td><strong>RGB</strong></td>
+                    <td>0 / 48 / 86</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Web (HEX)</strong></td>
+                    <td><code>#003056</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-6 mb-4">
+              <h6 class="text-uppercase small fw-bold text-muted mb-2">Zielfarbe – Green</h6>
+              <table class="table table-bordered table-sm text-nowrap mb-0">
+                <tbody>
+                  <tr>
+                    <td><strong>CMYK</strong></td>
+                    <td>60 / 0 / 100 / 0</td>
+                  </tr>
+                  <tr>
+                    <td><strong>RAL</strong></td>
+                    <td>6018</td>
+                  </tr>
+                  <tr>
+                    <td><strong>HKS</strong></td>
+                    <td>66</td>
+                  </tr>
+                  <tr>
+                    <td><strong>RGB</strong></td>
+                    <td>118 / 184 / 42</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Web (HEX)</strong></td>
+                    <td><code>#76b82a</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+		
+      
+      <section id="distribution-color" class="pt-5 mb-5" data-aos="fade-up">
+        <div class="container px-0">
+          <h2 class="section-title">Sekundärfarbe – Distribution</h2>
+          
+          <!-- Einzelfarbe: Styrian Green -->
+          <div class="row align-items-center mb-4">
+            <div class="col-md-4 mb-3 mb-md-0">
+              <div class="w-100" style="height: 100px; background-color: #76b82a;"></div>
+            </div>
+            <div class="col-md-8">
+              <p class="mb-1"> Die Farbe <strong>Styrian Green</strong> steht im Kontext der Distribution für Verlässlichkeit, Effizienz und nachhaltige Lieferprozesse. Sie signalisiert Modernität und logistische Stärke. </p>
+              <p class="mb-0 small text-muted"> CSS-Variable: <code>--tt-distribution</code> &nbsp;|&nbsp; HEX: <code>#76b82a</code> </p>
+            </div>
+          </div>
+          <div class="table-responsive mb-5">
+            <table class="table table-bordered table-sm mb-0 text-nowrap">
+              <thead class="table-light text-uppercase small">
+                <tr>
+                  <th scope="col">Farbsystem</th>
+                  <th scope="col">Wert</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>CMYK</strong></td>
+                  <td>60 / 0 / 100 / 0</td>
+                </tr>
+                <tr>
+                  <td><strong>RAL</strong></td>
+                  <td>6018</td>
+                </tr>
+                <tr>
+                  <td><strong>HKS</strong></td>
+                  <td>66</td>
+                </tr>
+                <tr>
+                  <td><strong>RGB</strong></td>
+                  <td>118 / 184 / 42</td>
+                </tr>
+                <tr>
+                  <td><strong>Web (HEX)</strong></td>
+                  <td><code>#76b82a</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+
+          <div class="card bg-distribution-gradient text-white border-0 mb-4" style="max-width: 100%;">
+            <div class="card-body">
+              <h5 class="card-title text-uppercase fw-bold mb-2">Distribution</h5>
+              <p class="card-text mb-0"> Diese Karte nutzt den TRIOTRONIK-Gradienten von Navy zu Styrian Green zur Darstellung logistischer Themen, Prozesse oder Services im Distributionsbereich. </p>
+            </div>
+          </div>
+          <button type="button" class="btn bg-distribution-gradient text-white text-uppercase fw-bold px-4 py-2 border-0"> Mehr zur Distribution </button>
+        </div>
+      </section>
+    </div>
+  </section>
+</div>
+</div>
+<!-- HERO TECHNOLOGIES -->
+<section id="technologies" class="hero-section position-relative w-100 min-vh-100 overflow-hidden d-flex align-items-center justify-content-center text-white bg-technologies-gradient"> 
+  
+  <!-- Hero-Inhalt -->
+  <div class="text-center px-3 z-1">
+    <h1 class="display-2 fw-bold mb-4">TRIOTRONIK Technologies</h1>
+    <p class="lead fs-4 mb-4">Innovative Netzwerktechnologien und digitale Lösungen für die Zukunft</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap">
+      <a href="#technologies-color" class="btn btn-light btn-lg px-4 py-3 fw-semibold">Technologien erkunden</a>
+      <a href="#farben" class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold">Farbsystem</a>
+    </div>
+    <div class="mt-5">
+      <p class="text-white-50 small mb-2">Advanced Technology • Digital Innovation • Network Solutions</p>
+    </div>
+  </div>
+  <!-- Overlay für bessere Lesbarkeit -->
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-10 z-0"></div>
+</section>
+
+<div class="main-content container">
+
+  <div class="container py-5">
+    <h1 class="mb-5 text-primary fw-bold text-uppercase">TRIOTRONIK TECHNOLOGIES</h1>
+
+    <section id="technologies-color" class="pt-5 mb-5" data-aos="fade-up">
+      <div class="container px-0">
+        <h2 class="section-title">Sekundärfarbe – Technologies</h2>
+        <div class="row align-items-center mb-4">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <div class="w-100" style="height: 100px; background-color: #006eb7;"></div>
+          </div>
+          <div class="col-md-8">
+            <p class="mb-1"> Die Farbe <strong>Technologies Blue</strong> ist die dunklere der beiden Technologies-Farben. Sie steht für Zuverlässigkeit, digitale Kompetenz und Klarheit – ideal für Hintergrundflächen, Überschriften oder strukturierende Elemente. </p>
+            <p class="mb-0 small text-muted"> CSS-Variable: <code>--tt-technologies-dark</code> &nbsp;|&nbsp; HEX: <code>#006eb7</code> </p>
+          </div>
+        </div>
+        
+        <!-- Farbtabelle: Technologies Blue -->
+        <div class="table-responsive">
+          <table class="table table-bordered table-sm text-nowrap mb-0">
+            <thead class="table-light text-uppercase small">
+              <tr>
+                <th scope="col">Farbsystem</th>
+                <th scope="col">Wert</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CMYK</strong></td>
+                <td>90 / 50 / 0 / 0</td>
+              </tr>
+              <tr>
+                <td><strong>RAL</strong></td>
+                <td>5005</td>
+              </tr>
+              <tr>
+                <td><strong>HKS</strong></td>
+                <td>39</td>
+              </tr>
+              <tr>
+                <td><strong>RGB</strong></td>
+                <td>0 / 110 / 183</td>
+              </tr>
+              <tr>
+                <td><strong>Web (HEX)</strong></td>
+                <td><code>#006eb7</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Einzelfarbe: Cyan -->
+        <div class="row align-items-center mb-4">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <div class="w-100" style="height: 100px; background-color: #16bae7;"></div>
+          </div>
+          <div class="col-md-8">
+            <p class="mb-1"> Die Farbe <strong>Cyan</strong> repräsentiert technologische Innovation, Vernetzung und digitale Klarheit. Sie steht für den Bereich TRIOTRONIK Technologies und wird gezielt in tech-bezogenen Interfaces, Labels oder Infoboxen verwendet. </p>
+            <p class="mb-0 small text-muted"> CSS-Variable: <code>--tt-technologies</code> &nbsp;|&nbsp; HEX: <code>#16bae7</code> </p>
+          </div>
+        </div>
+        
+        <!-- Farbwerte: Cyan -->
+        <div class="table-responsive mb-5">
+          <table class="table table-bordered table-sm text-nowrap mb-0">
+            <thead class="table-light text-uppercase small">
+              <tr>
+                <th scope="col">Farbsystem</th>
+                <th scope="col">Wert</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CMYK</strong></td>
+                <td>70 / 0 / 5 / 0</td>
+              </tr>
+              <tr>
+                <td><strong>RAL</strong></td>
+                <td>5012</td>
+              </tr>
+              <tr>
+                <td><strong>HKS</strong></td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td><strong>RGB</strong></td>
+                <td>22 / 186 / 231</td>
+              </tr>
+              <tr>
+                <td><strong>Web (HEX)</strong></td>
+                <td><code>#16bae7</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Verlauf Technologies -->
+        <h3 class="h5 fw-bold text-uppercase mt-4 mb-3">Farbverlauf – Technologies</h3>
+        <div class="row align-items-center mb-4">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <div class="w-100" style="height: 100px; background: linear-gradient(46deg, #006eb7 20%, #16bae7 80%);"></div>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"> Der Verlauf verbindet <strong>Technologies Blue</strong> mit <strong>Cyan</strong> und erzeugt eine moderne und zukunftsgerichtete Farbdynamik. Er eignet sich hervorragend für Hero-Bereiche, Tech-Module oder Call-to-Actions im Bereich Technologies. </p>
+            <p class="small text-muted mb-0"> CSS-Klasse: <code>.bg-technologies-gradient</code> &nbsp;|&nbsp; <code>linear-gradient(46deg, #006eb7 20%, #16bae7 80%)</code> </p>
+          </div>
+        </div>
+        
+        <!-- Farbwerte Verlauf: Technologies Blue & Cyan -->
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <h6 class="text-uppercase small fw-bold text-muted mb-2">Startfarbe – Technologies Blue</h6>
+            <table class="table table-bordered table-sm text-nowrap mb-0">
+              <tbody>
+                <tr>
+                  <td><strong>CMYK</strong></td>
+                  <td>90 / 50 / 0 / 0</td>
+                </tr>
+                <tr>
+                  <td><strong>RAL</strong></td>
+                  <td>5005</td>
+                </tr>
+                <tr>
+                  <td><strong>HKS</strong></td>
+                  <td>39</td>
+                </tr>
+                <tr>
+                  <td><strong>RGB</strong></td>
+                  <td>0 / 110 / 183</td>
+                </tr>
+                <tr>
+                  <td><strong>Web (HEX)</strong></td>
+                  <td><code>#006eb7</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-6 mb-4">
+            <h6 class="text-uppercase small fw-bold text-muted mb-2">Zielfarbe – Cyan</h6>
+            <table class="table table-bordered table-sm text-nowrap mb-0">
+              <tbody>
+                <tr>
+                  <td><strong>CMYK</strong></td>
+                  <td>70 / 0 / 5 / 0</td>
+                </tr>
+                <tr>
+                  <td><strong>RAL</strong></td>
+                  <td>5012</td>
+                </tr>
+                <tr>
+                  <td><strong>HKS</strong></td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td><strong>RGB</strong></td>
+                  <td>22 / 186 / 231</td>
+                </tr>
+                <tr>
+                  <td><strong>Web (HEX)</strong></td>
+                  <td><code>#16bae7</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card bg-technologies-gradient text-white border-0 mb-4" style="max-width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title text-uppercase fw-bold mb-2">Technologies</h5>
+            <p class="card-text mb-0"> Diese Karte nutzt den TRIOTRONIK-Verlauf von Technologies Blue zu Cyan zur Darstellung technologischer Themen, Innovationen oder Services im Bereich Technologies. </p>
+          </div>
+        </div>
+        <button type="button" class="btn bg-technologies-gradient text-white text-uppercase fw-bold px-4 py-2 border-0"> Mehr zu Technologies </button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- TECHNOLOGIES 
+  <section id="technologies" class="mb-5" data-aos="fade-up">
+    <h2 class="h4 fw-bold text-uppercase border-bottom pb-2 mb-3">Technologies</h2>
+    <p>Inhalte zu Technologien ...</p>
+
+    <div class="card border-0 shadow-sm mt-4">
+      <div class="card-header bg-primary text-white fw-bold text-uppercase">
+        Farbwerte – Technologies
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Primary</th>
+              <th>Accent</th>
+              <th>Text</th>
+              <th>Hintergrund</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="background:#0277BD; color:#fff;">#0277BD</td>
+              <td style="background:#00BCD4; color:#000;">#00BCD4</td>
+              <td style="background:#012C40; color:#fff;">#012C40</td>
+              <td style="background:#E1F5FE;">#E1F5FE</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+--> 
+  
+  <!-- Farben -->
+  <section class="mb-5" id="farben" data-aos="fade-up">
+    <h2 class="section-title">Farben</h2>
+    <div class="d-flex gap-3 flex-wrap">
+      <div class="swatch" style="background:#003056;">NAVY<br>
+        #003056</div>
+      <div class="swatch" style="background:#5BC72B;">STYRIAN GREEN<br>
+        #5BC72B</div>
+      <div class="swatch swatch-light" style="background:#f8f9fa; color:#000; border: 1px solid #ccc;">Hellgrau<br>
+        #f8f9fa</div>
+    </div>
+    <!-- Farbswatch mit Farbverlauf ORANGE – ACADEMY -->
+    <h4 class="mt-5">Farbverlauf ORANGE – ACADEMY</h4>
+    <div class="swatch text-white" style="background: linear-gradient(46deg, rgba(158, 25, 129, 1) 20%, rgba(245, 156, 0, 1) 80%);"> ORANGE – ACADEMY<br>
+      #9E1981 → #F59C00 </div>
+    <!-- Farbswatch mit Farbverlauf GREEN – DISTRIBUTION -->
+    <h4 class="mt-5">Farbverlauf GREEN – DISTRIBUTION</h4>
+    <div class="swatch text-white" style="background: linear-gradient(46deg, #003056 20%, #76b82a 80%);"> GREEN – DISTRIBUTION<br>
+      #003056 → #76b82a </div>
+    <!-- Farbswatch mit Farbverlauf CYAN – TECHNOLOGIES -->
+    <h4 class="mt-5">Farbverlauf CYAN – TECHNOLOGIES</h4>
+    <div class="swatch text-white" style="background: linear-gradient(46deg, #006eb7 20%, #16bae7 80%);"> CYAN – TECHNOLOGIES<br>
+      #006eb7 → #16bae7 </div>
+  </section>
+	  
+	  
+  <!-- Typografie -->
+  <section class="mb-5" id="typografie" data-aos="fade-up">
+    <h2 class="section-title">Typografie</h2>
+    <h1>Headline 1</h1>
+    <h2>Headline 2</h2>
+    <p class="lead">Lead-Text – zur Betonung wichtiger Aussagen.</p>
+    <p>Dies ist ein Beispieltext in regulärer Darstellung mit klarer Lesbarkeit und strukturiertem Aufbau.</p>
+    <small>Kleingedruckter Text</small> </section>
+	  
+	  
+<!-- Corporate Fonts -->
+  <section id="corporate-fonts" class="pt-5 mb-5" data-aos="fade-up">
+    <div class="container px-0">
+      <h2 class="section-title">Corporate Fonts – Navy</h2>
+      
+      <!-- Einleitung -->
+      <div class="mb-4">
+        <p class="lead">Die primäre Schriftfamilie von TRIOTRONIK ist <strong>Segoe UI</strong>. Sie steht für Klarheit, Modernität und technische Präzision. In Kombination mit der Primärfarbe <strong>Navy</strong> (#003056) entfaltet sie ihre visuelle Wirkung optimal in digitalen und gedruckten Medien.</p>
+      </div>
+      
+      <!-- Farbfeld + Infos -->
+      <div class="row align-items-center mb-5">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="w-100" style="height: 100px; background-color: var(--tt-primary);"></div>
+        </div>
+        <div class="col-md-8">
+          <ul class="list-unstyled small text-muted mb-0">
+            <li><strong>Farbname:</strong> Navy</li>
+            <li><strong>CMYK:</strong> 100 / 60 / 10 / 60</li>
+            <li><strong>RAL:</strong> 5011</li>
+            <li><strong>HKS:</strong> 38</li>
+            <li><strong>RGB:</strong> 0 / 48 / 86</li>
+            <li><strong>Web (HEX):</strong> <code>#003056</code></li>
+            <li><strong>CSS-Variable:</strong> <code>--tt-primary</code></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bootstrap Typografie Beispiele -->
+      <div class="row gy-4" style="font-family: var(--tt-font-primary); color: var(--tt-primary);">
+        <div class="col-md-6">
+          <h1 class="display-1">Display 1</h1>
+          <h2 class="display-2">Display 2</h2>
+          <h3 class="display-3">Display 3</h3>
+          <h4 class="display-4">Display 4</h4>
+        </div>
+        <div class="col-md-6">
+          <h1 class="h1">Heading 1</h1>
+          <h2 class="h2">Heading 2</h2>
+          <h3 class="h3">Heading 3</h3>
+          <h4 class="h4">Heading 4</h4>
+          <h5 class="h5">Heading 5</h5>
+          <h6 class="h6">Heading 6</h6>
+        </div>
+        <div class="col-12">
+          <p class="lead">Dies ist ein <strong>Lead-Text</strong> mit betonter Größe und Zeilenhöhe. Ideal für Einleitungen oder Hervorhebungen.</p>
+          <p>Dies ist ein normaler Absatz mit einem <a href="#" class="link-primary">Link</a> und <em>betontem</em> Text.</p>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Form Label</label>
+          <input type="text" class="form-control" placeholder="Beispiel-Eingabe">
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-outline-primary" style="border-color: var(--tt-primary); color: var(--tt-primary);"> Outline Button </button>
+          <button class="btn text-white" style="background-color: var(--tt-primary);"> Navy Button </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Theme Toggle -->
+  <div class="d-flex justify-content-end align-items-center mb-2">
+    <label class="form-check-label me-2 text-muted small">Dark Mode</label>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="fontPreviewThemeToggle">
+    </div>
+  </div>
+  <section id="font-preview" class="pt-5 mb-5" data-aos="fade-up">
+    <div class="container px-0">
+      <h2 class="section-title">Interaktives Font-Preview-Modul</h2>
+      <div class="row g-4">
+        <div class="col-md-6"> 
+          
+          <!-- Font Auswahl -->
+          <div class="form-group mb-3">
+            <label for="fontSelect" class="form-label text-uppercase small fw-bold text-muted">Schriftart</label>
+            <select id="fontSelect" class="form-select">
+              <option value="var(--tt-font-primary)" selected>Segoe UI (Primärschrift)</option>
+              <option value="var(--tt-font-secondary)">Fira Sans (Sekundär)</option>
+              <option value="var(--tt-font-print)">Print-Schrift (Serif)</option>
+            </select>
+          </div>
+          
+          <!-- Größe -->
+          <div class="form-group mb-3">
+            <label for="fontSize" class="form-label text-uppercase small fw-bold text-muted">Größe</label>
+            <select id="fontSize" class="form-select">
+              <option value="1rem">Standard (1rem)</option>
+              <option value="1.25rem">Groß (1.25rem)</option>
+              <option value="1.5rem">XL (1.5rem)</option>
+              <option value="2rem">XXL (2rem)</option>
+            </select>
+          </div>
+          
+          <!-- Stil -->
+          <div class="form-group mb-3">
+            <label for="fontStyle" class="form-label text-uppercase small fw-bold text-muted">Stil</label>
+            <select id="fontStyle" class="form-select">
+              <option value="normal">Normal</option>
+              <option value="italic">Kursiv</option>
+              <option value="bold">Fett</option>
+              <option value="bold italic">Fett & Kursiv</option>
+            </select>
+          </div>
+          
+          <!-- Vorschautext -->
+          <div class="form-group">
+            <label for="previewText" class="form-label text-uppercase small fw-bold text-muted">Vorschau-Text</label>
+            <textarea id="previewText" class="form-control" rows="3">TRIOTRONIK – Technologie. Vertrauen. Zukunft.</textarea>
+          </div>
+        </div>
+        
+        <!-- Vorschau -->
+        <div class="col-md-6">
+          <div class="p-4 border bg-light h-100">
+            <label class="text-uppercase small fw-bold text-muted mb-2 d-block">Live-Vorschau</label>
+            <div id="fontPreviewOutput" class="w-100" style="min-height: 150px;"> TRIOTRONIK – Technologie. Vertrauen. Zukunft. </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+	  
+	  
+	  
+	  
+	  
+  <!-- Buttons -->
+  <section class="mb-5" id="buttons" data-aos="fade-up">
+    <h2 class="section-title">Buttons</h2>
+    <button class="btn btn-primary-custom btn-triotronik me-2">Primär</button>
+    <button class="btn btn-accent btn-triotronik me-2">Akzent</button>
+    <button class="btn btn-outline-dark btn-triotronik">Outline</button>
+  </section>
+  <!-- Formular -->
+  <section class="mb-5" id="formular" data-aos="fade-up">
+    <h2 class="section-title">Formular</h2>
+    <form class="needs-validation triotronik-form shadow p-4 bg-light rounded-3" id="iconTooltipForm" novalidate>
+      <!-- Name -->
+      <div class="form-floating mb-4 position-relative">
+        <input type="text" class="form-control" id="nameInput" placeholder="Max Mustermann" required
+                     data-bs-toggle="tooltip" data-bs-placement="top" title="Deinen vollständigen Namen angeben.">
+        <label for="nameInput"><i class="bi bi-person-fill me-1"></i>Name <span class="text-danger">*</span></label>
+        <div class="invalid-feedback"><i class="bi bi-exclamation-triangle-fill me-1"></i>Name ist erforderlich.</div>
+      </div>
+      <!-- E-Mail -->
+      <div class="form-floating mb-4 position-relative">
+        <input type="email" class="form-control" id="emailInput" placeholder="name@domain.at" required
+                     data-bs-toggle="tooltip" data-bs-placement="top" title="Gültige E-Mail-Adresse eingeben.">
+        <label for="emailInput"><i class="bi bi-envelope-fill me-1"></i>E-Mail <span class="text-danger">*</span></label>
+        <div class="invalid-feedback"><i class="bi bi-exclamation-triangle-fill me-1"></i>Gültige E-Mail erforderlich.</div>
+      </div>
+      <!-- Select -->
+      <div class="form-floating mb-4">
+        <select class="form-select" id="topicSelect" required
+                     data-bs-toggle="tooltip" title="Wähle den Grund deiner Anfrage.">
+          <option value="" disabled selected>Bitte wählen</option>
+          <option value="support">Support</option>
+          <option value="vertrieb">Vertrieb</option>
+          <option value="technisch">Technik</option>
+        </select>
+        <label for="topicSelect"><i class="bi bi-ui-checks-grid me-1"></i>Anliegen</label>
+        <div class="invalid-feedback"><i class="bi bi-exclamation-triangle-fill me-1"></i>Bitte Anliegen wählen.</div>
+      </div>
+      <!-- Radio -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold" data-bs-toggle="tooltip" title="Möchtest du unseren Newsletter erhalten?"> <i class="bi bi-bell-fill me-1"></i>Newsletter erhalten? </label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="newsletter" id="newsletterJa" value="ja" required>
+          <label class="form-check-label" for="newsletterJa"><i class="bi bi-check-lg me-1"></i>Ja</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="newsletter" id="newsletterNein" value="nein" required>
+          <label class="form-check-label" for="newsletterNein"><i class="bi bi-x-lg me-1"></i>Nein</label>
+        </div>
+        <div class="invalid-feedback d-block"><i class="bi bi-exclamation-triangle-fill me-1"></i>Bitte wählen.</div>
+      </div>
+      <!-- Datei-Upload -->
+      <div class="mb-4">
+        <label for="uploadFile" class="form-label fw-semibold" data-bs-toggle="tooltip" title="PDF, PNG oder JPG-Datei hinzufügen."> <i class="bi bi-upload me-1"></i>Anhang hochladen (optional) </label>
+        <input class="form-control" type="file" id="uploadFile" accept=".pdf,.jpg,.png">
+      </div>
+      <!-- Nachricht -->
+      <div class="form-floating mb-4">
+        <textarea class="form-control" id="messageInput" placeholder="Ihre Nachricht..." style="height: 150px;"
+                     data-bs-toggle="tooltip" title="Deine Nachricht oder Anmerkung."></textarea>
+        <label for="messageInput"><i class="bi bi-chat-left-text-fill me-1"></i>Nachricht</label>
+      </div>
+      <!-- Absenden -->
+      <button class="btn btn-accent px-4 py-2 fw-bold" type="submit"> <i class="bi bi-send-fill me-1"></i>Absenden </button>
+    </form>
+  </section>
+  <!-- Card -->
+  <section class="mb-5" id="card" data-aos="fade-up">
+    <h2 class="section-title">Card</h2>
+    <div class="card" style="width: 20rem;"> <img src="https://via.placeholder.com/320x180" class="card-img-top" alt="Beispielbild">
+      <div class="card-body">
+        <h5 class="card-title">Card-Titel</h5>
+        <p class="card-text">Kurze Beschreibung der Komponente oder eines Produkts.</p>
+        <a href="#" class="btn btn-accent btn-triotronik">Mehr erfahren</a> </div>
+    </div>
+  </section>
+  <!-- Tabellen -->
+  <section class="mb-5" id="tabellen" data-aos="fade-up">
+    <h2 class="section-title">Tabellen</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Modul A</td>
+          <td>Aktiv</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Modul B</td>
+          <td>Inaktiv</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+	  
+
+  
+  <!-- Alerts -->
+  <section class="mb-5" id="alerts" data-aos="fade-up">
+    <h2 class="section-title">Hinweise</h2>
+    <div class="alert alert-success">Dies ist eine Erfolgsmeldung.</div>
+    <div class="alert alert-warning">Dies ist eine Warnung.</div>
+    <div class="alert alert-danger">Dies ist eine Fehlermeldung.</div>
+  </section>
+  <!-- Neuer UI-Komponenten-Bereich -->
+  <section class="mb-5" id="ui-komponenten" data-aos="fade-up">
+    <h2 class="section-title">Weitere UI-Komponenten</h2>
+    <!-- Tabs -->
+    <h4 class="mt-4">Tabs</h4>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab">Start</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab">Profil</button>
+      </li>
+    </ul>
+    <div class="tab-content p-3 border border-top-0" id="myTabContent">
+      <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel">Willkommen auf der Startseite dieses Tabs.</div>
+      <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel">Dies ist der Bereich "Profil".</div>
+    </div>
+    <!-- Tooltips -->
+    <h4 class="mt-5">Tooltips</h4>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip oben">Hover mich</button>
+    <!-- Toasts -->
+    <h4 class="mt-5">Toasts</h4>
+    <button type="button" class="btn btn-primary" onclick="showToast()">Toast anzeigen</button>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header"> <strong class="me-auto">System</strong> <small>Jetzt</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Schließen"></button>
+        </div>
+        <div class="toast-body">Dies ist eine Toast-Nachricht.</div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <h4 class="mt-5">Modales Fenster</h4>
+    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Modal öffnen</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">TRIOTRONIK Modal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
+          </div>
+          <div class="modal-body">Dies ist ein modales Fenster für zusätzliche Informationen.</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Progressbar -->
+    <h4 class="mt-5">Progressbar</h4>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+    </div>
+    <!-- Badges -->
+    <h4 class="mt-5">Badges</h4>
+    <p> Neue Nachrichten <span class="badge bg-success">3</span><br/>
+      Status <span class="badge bg-warning text-dark">Wartung</span><br/>
+      Fehler <span class="badge bg-danger">! Fehler</span> </p>
+    <!-- Accordion -->
+    <h4 class="mt-5">Accordion</h4>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"> Accordion Element 1 </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">Inhalt des ersten Abschnitts.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"> Accordion Element 2 </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">Inhalt des zweiten Abschnitts.</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slider (Range Input) -->
+    <h4 class="mt-5">Slider</h4>
+    <label for="rangeSlider" class="form-label">Wertauswahl</label>
+    <input type="range" class="form-range" min="0" max="100" id="rangeSlider">
+    <!-- Stepper (using progress) -->
+    <h4 class="mt-5">Stepper</h4>
+    <div class="d-flex justify-content-between mb-2"> <span>Schritt 1</span> <span>Schritt 2</span> <span>Schritt 3</span> </div>
+    <div class="progress">
+      <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="2" aria-valuemin="0" aria-valuemax="3"></div>
+    </div>
+    <!-- Farbsystem-Demo -->
+    <h4 class="mt-5">Farbsystem-Demo</h4>
+    <div class="d-flex gap-2 flex-wrap">
+      <div class="p-3 text-white" style="background-color: #061E35">Primärfarbe: Navy</div>
+      <div class="p-3 text-dark" style="background-color: #5BC72B">Akzentfarbe: Styrian Green</div>
+      <div class="p-3 text-dark" style="background-color: #f8f9fa; border: 1px solid #ccc">Neutral: Hellgrau</div>
+    </div>
+  </section>
+    <section class="mb-5 theme-light" data-aos="fade-up">
+      <div class="container px-0" style="background-color: var(--tt-bg); color: var(--tt-text);">
+        <h2 class="h4 fw-bold text-uppercase border-bottom pb-2 mb-4" style="border-color: var(--tt-border);"> Bestandsübersicht </h2>
+        
+        <!-- Interne & Externe Lager -->
+        <div class="row gx-5">
+          <div class="col-md-6 mb-4">
+            <div class="border-start border-4 border-success ps-3">
+              <h6 class="text-uppercase small mb-1" style="color: var(--tt-muted);">Internes Lager</h6>
+              <div class="d-flex align-items-center"> <span class="badge bg-success me-2 rounded-circle" style="width: 12px; height: 12px;"></span> <span class="fw-bold" style="color: var(--tt-text);">+1134</span> <span class="ms-2 small" style="color: var(--tt-muted);">versandbereit ab Lager</span> </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="border-start border-4 border-warning ps-3">
+              <h6 class="text-uppercase small mb-1" style="color: var(--tt-muted);">Externes Lager</h6>
+              <div class="d-flex align-items-center"> <span class="badge bg-warning me-2 rounded-circle" style="width: 12px; height: 12px;"></span> <span class="fw-bold" style="color: var(--tt-text);">+255</span> <span class="ms-2 small" style="color: var(--tt-muted);">versandbereit in 2–3 Tagen</span> </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- In Zulauf -->
+        <div class="mb-4">
+          <h6 class="fw-bold text-uppercase mb-2" style="color: var(--tt-text);">In Zulauf</h6>
+          <div class="table-responsive">
+            <table class="table table-borderless align-middle mb-0">
+              <thead style="background-color: var(--tt-table-header-bg); color: var(--tt-muted);">
+                <tr class="text-uppercase small">
+                  <th class="fw-semibold">Datum</th>
+                  <th class="fw-semibold text-end">Bestellte Menge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="color: var(--tt-text);">05.08.2025</td>
+                  <td class="text-end fw-bold" style="color: var(--tt-text);">260</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--tt-text);">05.08.2025</td>
+                  <td class="text-end fw-bold" style="color: var(--tt-text);">260</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--tt-text);">05.08.2025</td>
+                  <td class="text-end fw-bold" style="color: var(--tt-text);">260</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="formulare" class="pt-5 mb-5" data-aos="fade-up">
+      <div class="container px-0">
+        <h2 class="section-title">Formulare</h2>
+        <p class="mb-4"> UX-optimiertes Flat-Formular mit Fokus auf Klarheit, Barrierefreiheit und Responsive Design. Alle Formularfelder sind anpassbar für Light/Dark-Themes und vollständig bootstrap-kompatibel. </p>
+        <form class="theme-light">
+          <div class="row"> 
+            <!-- Name -->
+            <div class="col-md-6 mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" class="form-control is-valid" placeholder="Max Mustermann" required>
+              <div class="valid-feedback">Alles gut!</div>
+            </div>
+            
+            <!-- E-Mail -->
+            <div class="col-md-6 mb-3">
+              <label for="email" class="form-label">E-Mail-Adresse</label>
+              <input type="email" id="email" class="form-control is-invalid" placeholder="name@beispiel.com" required>
+              <div class="invalid-feedback">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
+            </div>
+            
+            <!-- Betreff -->
+            <div class="col-12 mb-3">
+              <label for="betreff" class="form-label">Betreff</label>
+              <input type="text" id="betreff" class="form-control" placeholder="Anfrage zu Produkten...">
+            </div>
+            
+            <!-- Nachricht -->
+            <div class="col-12 mb-4">
+              <label for="nachricht" class="form-label">Nachricht</label>
+              <textarea id="nachricht" class="form-control" rows="5" placeholder="Ihre Nachricht..."></textarea>
+            </div>
+            
+            <!-- Button -->
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary-custom">Absenden</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    
+    <!-- Formular mit Validierung -->
+    <h4 class="mt-5">Formular mit Validierung</h4>
+    <form class="needs-validation triotronik-form shadow p-4 bg-light rounded-3" id="uploadForm" novalidate>
+      <!-- Name -->
+      <div class="form-floating mb-4 position-relative">
+        <input type="text" class="form-control" id="nameInput" placeholder="Max Mustermann" required data-bs-toggle="tooltip" data-bs-placement="top" title="Bitte vollständigen Namen eingeben">
+        <label for="nameInput"><i class="bi bi-person-fill me-1"></i>Name <span class="text-danger">*</span></label>
+        <div class="invalid-feedback">Bitte Namen eingeben.</div>
+      </div>
+      <!-- E-Mail -->
+      <div class="form-floating mb-4 position-relative">
+        <input type="email" class="form-control" id="emailInput" placeholder="name@domain.at" required data-bs-toggle="tooltip" data-bs-placement="top" title="Gültige E-Mail-Adresse angeben">
+        <label for="emailInput"><i class="bi bi-envelope-fill me-1"></i>E-Mail-Adresse <span class="text-danger">*</span></label>
+        <div class="invalid-feedback">Bitte gültige E-Mail-Adresse eingeben.</div>
+      </div>
+      <!-- Select -->
+      <div class="form-floating mb-4">
+        <select class="form-select" id="topicSelect" required>
+          <option value="" disabled selected>Bitte wählen</option>
+          <option value="support">Support</option>
+          <option value="vertrieb">Vertrieb</option>
+          <option value="technisch">Technische Frage</option>
+        </select>
+        <label for="topicSelect"><i class="bi bi-ui-checks-grid me-1"></i>Anliegen</label>
+        <div class="invalid-feedback">Bitte ein Anliegen auswählen.</div>
+      </div>
+      
+      <!-- Radio -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold"><i class="bi bi-check-circle me-1"></i>Newsletter erhalten?</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="newsletter" id="newsletterJa" value="ja" required>
+          <label class="form-check-label" for="newsletterJa">Ja</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="newsletter" id="newsletterNein" value="nein" required>
+          <label class="form-check-label" for="newsletterNein">Nein</label>
+        </div>
+        <div class="invalid-feedback d-block">Bitte eine Option wählen.</div>
+      </div>
+      <!-- Dateiupload -->
+      <div class="mb-4">
+        <label for="uploadFile" class="form-label fw-semibold"> <i class="bi bi-upload me-1"></i>Anhang hochladen (optional) </label>
+        <input class="form-control" type="file" id="uploadFile" accept=".pdf,.jpg,.png">
+        <!-- Fortschrittsbalken -->
+        <div class="progress mt-2 d-none" id="uploadProgress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" id="uploadProgressBar">0%</div>
+        </div>
+      </div>
+      <!-- Nachricht -->
+      <div class="form-floating mb-4">
+        <textarea class="form-control" id="messageInput" placeholder="Ihre Nachricht..." style="height: 150px;" data-bs-toggle="tooltip" title="Was möchten Sie uns mitteilen?"></textarea>
+        <label for="messageInput"><i class="bi bi-chat-dots me-1"></i>Nachricht</label>
+      </div>
+      <!-- Submit -->
+      <button class="btn btn-accent px-4 py-2 fw-bold" type="submit"> <i class="bi bi-send-fill me-1"></i>Absenden </button>
+    </form>
+  </section>
+</div>
+<!-- Scripts --> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> 
+<script src="assets/js/styleguide.js"></script> 
+<script>
+  const toastEl = document.getElementById('triotronikToast');
+  const toast = new bootstrap.Toast(toastEl, {
+    delay: 5000, // automatische Ausblendung nach 5 Sek.
+    autohide: true
+  });
+  toast.show(); // Zeigt den Toast
+</script>
+</body>
+</html>
